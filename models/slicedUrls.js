@@ -1,4 +1,4 @@
-const mongoose = require('mongoose')
+const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const slicedUriSchema = new Schema({
@@ -8,6 +8,7 @@ const slicedUriSchema = new Schema({
 	},
 	newUri : {
 		type : String,
+		required : true,
 		unique: true
 	}
 })
