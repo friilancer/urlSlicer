@@ -23,7 +23,8 @@ mongoose.connect(mongoURI, dbOptions, () => {
 })
 
 //routes
-app.use('/slice', require('./routes/main.js'));
+app.use('/', require('./routes/redirect'));
+app.use('/slice', require('./routes/slicer'));
 
 const port = process.env.PORT || 3000;
 app.listen(port, () => {

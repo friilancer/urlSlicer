@@ -6,7 +6,7 @@ const slicedUriSchema = new Schema({
 		type: String,
 		required : true
 	},
-	newUri : {
+	newUriCode : {
 		type : String,
 		required : true,
 		unique: true
