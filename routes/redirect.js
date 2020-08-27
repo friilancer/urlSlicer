@@ -9,7 +9,9 @@ Router.get('/:newUriCode', (req, res) => {
 	SlicedUri.findOne({ newUriCode })
 		.then( doc => {
 			if ( !doc ) return res.status(404).json({ msg : 'This page does not exist' });	
-			res.redirect(doc.oldUri);		
+			res.redirect(doc.oldUri);
+			doc.timesVisited += 1;
+			doc.save();		
 		})
 })
 

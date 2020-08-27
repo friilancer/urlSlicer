@@ -10,6 +10,10 @@ const slicedUriSchema = new Schema({
 		type : String,
 		required : true,
 		unique: true
+	},
+	timesVisited : {
+		type: Number,
+		default : 0
 	}
 })
 
