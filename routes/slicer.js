@@ -16,23 +16,25 @@ const generateNewUri = () => {
 }
 
 Router.post('/', (req, res) => {
-	const { oldUri, newUriCode } = req.body;
+	const { oldUri } = req.body;
+
+	let newUriCode = req.body.newUriCode || "" ;
 
 	//Validate params
 	if( !oldUri ){
 		return res.status(400).json({msg : "Please enter the uri to be shortened"});
 	}
 
-	else if ( !newUriCode ) {
+	else if ( newUriCode === "" ) {
 		const generatedUri =  generateNewUri();
-		return res.status(200).json({ msg : `etu.kk/${generatedUri}` });
+		newUriCode = generatedUri;
 	}
 
 	// Check for availability of new URI name	
 	SlicedUri.findOne({ newUriCode })
 		.then( uri => {
 			if(uri){ 
-				return res.status(400).json({ msg :  `etu.kk/${newUriCode} unavailable..Please modify name`});
+				return res.status(400).json({ msg :  `${newUriCode} unavailable..Please modify name`});
 			} 
 
 			const newSlicedUri = new SlicedUri({
