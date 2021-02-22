@@ -1,4 +1,4 @@
-# An api for shortening long URIs
+# An Node.js API for shortening long URIs
 
 This API is hosted on [Glitch](https://panoramic-clean-mahogany.glitch.me)
 
@@ -58,7 +58,7 @@ Trying to create a shortened customized URI with a text that has already been us
 
 ```
 {
-    "msg": "cluiqibz unavailable..Please modify name"
+    "msg": "cluiqibX unavailable..Please modify name"
 }
 
 ```
